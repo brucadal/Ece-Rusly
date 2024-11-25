@@ -1,6 +1,8 @@
 // Fungsi untuk meminta nama pengguna melalui prompt dan menampilkannya
 function tampilkanNama() {
     // Meminta input nama melalui prompt
+    
+  
     const nama = prompt("Masukkan nama Anda:");
 
     // Menampilkan nama yang dimasukkan di elemen dengan id 'nama-sambutan'
@@ -9,6 +11,11 @@ function tampilkanNama() {
     } else {
         document.getElementById('nama-sambutan').textContent = "Tamu yang terhormat";
     }
+    document.getElementById("loading-screen").style.display = "none";
+            document.getElementById("main-content").style.display = "block";
+            window.onload = () => {
+                tampilkanNama();
+            };
 }
 
 // Panggil fungsi untuk meminta nama saat halaman dimuat atau sesuai kebutuhan
