@@ -162,3 +162,42 @@ function copyText(el)
     }, 2000)
 }
 
+const scriptURL = 'https://script.google.com/a/macros/student.cs.unida.gontor.ac.id/s/AKfycbznbFfRo7n4aevEcKkoQF9ZxLdi3OKsSs_tw5OWOEs8nE6qrsQ3UEycW8eDnA2ZbWA/exec'; // Ganti dengan URL Web App dari Apps Script
+const form = document.getElementById('rsvpForm');
+const responseMessage = document.getElementById('response');
+
+form.addEventListener('submit', async (e) => {
+  e.preventDefault(); // Mencegah pengiriman form secara default
+
+  // Ambil data dari form
+  const formData = new FormData(form);
+  const data = {
+    name: formData.get('name'),
+    kehadiran: formData.get('adults'),
+    kids: formData.get('kids'),
+  };
+
+  try {
+    // Kirim data ke Google Apps Script
+    const response = await fetch(scriptURL, {
+      method: 'POST',
+      body: JSON.stringify(data),
+      headers: { 'Content-Type': 'application/json' },
+    });
+
+    const result = await response.json();
+
+    // Tampilkan pesan sukses atau error
+    if (result.status === 'success') {
+      responseMessage.textContent = 'RSVP Anda berhasil dikirim. Terima kasih!';
+      responseMessage.style.color = 'green';
+      form.reset();
+    } else {
+      responseMessage.textContent = 'Terjadi kesalahan, silakan coba lagi.';
+      responseMessage.style.color = 'red';
+    }
+  } catch (error) {
+    responseMessage.textContent = 'Gagal mengirim RSVP. Periksa koneksi internet Anda.';
+    responseMessage.style.color = 'red';
+  }
+});
