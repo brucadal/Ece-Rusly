@@ -165,31 +165,41 @@ function copyText(el)
 
 document.getElementById('rsvpForm').addEventListener('submit', function (e) {
     e.preventDefault(); // Mencegah reload halaman
-  
+
     // Ambil data dari form
     const name = document.getElementById('name').value.trim();
-    const attendance = document.getElementById('attendance').value.trim();
+    const attendance = document.getElementById('attendance').value;
     const message = document.getElementById('message').value.trim();
-  
+
     if (!name || !attendance || !message) {
-      document.getElementById('response').textContent = 'Mohon lengkapi semua bidang sebelum mengirim.';
-      return;
+        document.getElementById('response').textContent = 'Mohon lengkapi semua bidang sebelum mengirim.';
+        return;
     }
-  
+
     // Format pesan untuk WhatsApp
     const waMessage = `Halo, ini RSVP saya:%0A%0ANama: ${encodeURIComponent(name)}%0AKehadiran: ${encodeURIComponent(attendance)}%0APesan: ${encodeURIComponent(message)}`;
-  
+
     // Nomor WhatsApp tujuan
     const waNumber = '6285284132236'; // Ganti dengan nomor tujuan
-  
+
     // Buat URL WhatsApp
     const waURL = `https://wa.me/${waNumber}?text=${waMessage}`;
-  
+
     // Buka WhatsApp Web
     window.open(waURL, '_blank');
-  
+
     // Tampilkan feedback
     document.getElementById('response').textContent = 'RSVP Anda sedang dikirim melalui WhatsApp.';
-  });
-  
 
+    // Menambahkan komentar ke bawah form
+    const commentSection = document.getElementById('commentSection');
+    const newComment = document.createElement('div');
+    newComment.classList.add('comment');
+    newComment.innerHTML = `<strong>${name}</strong><br>Kehadiran: ${attendance}<br>Pesan: ${message}`;
+    commentSection.appendChild(newComment);
+
+    // Kosongkan form setelah pengiriman
+    document.getElementById('name').value = '';
+    document.getElementById('attendance').value = '';
+    document.getElementById('message').value = '';
+});

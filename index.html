@@ -457,29 +457,49 @@
        
        <section id="rsvp-section" class="d-flex align-items-center py-5 mb-6" data-aos="fade-down" data-aos-easing="linear" data-aos-duration="1500">
         <a href="#pembuka-section"></a>
-        <div class="form-container">
-          <h2>RSVP Form</h2>
+        <div class="rsvp-box">
+          <h1>RSVP Pernikahan</h1>
           <form id="rsvpForm">
+              <input type="text" id="name" placeholder="Nama" required />
+              <select id="attendance" required>
+                  <option value="" disabled selected>Pilih Kehadiran</option>
+                  <option value="Hadir">Hadir</option>
+                  <option value="Tidak Hadir">Tidak Hadir</option>
+                  <option value="Masih Pertimbangan">Masih Pertimbangan</option>
+              </select>
+              <textarea id="message" placeholder="Pesan atau Ucapan" required></textarea>
+              <button type="submit">Kirim RSVP</button>
+          </form>
+  
+          <div id="response"></div>
+  
+          <div id="commentSection">
+              <!-- Komentar akan muncul di sini -->
+          </div>
+      </div>
+        <!-- <div class="form-container">
+          <h2>RSVP Form</h2>
+          <form id="rsvpForm"> -->
             <!-- Nama -->
-            <label for="name">Nama Anda:</label>
+            <!-- <label for="name">Nama Anda:</label>
             <input type="text" id="name" name="name" required>
-      
+       -->
             <!-- Kehadiran -->
-            <label for="attendance">Apakah Anda Akan Hadir:</label>
+            <!-- <label for="attendance">Apakah Anda Akan Hadir:</label>
             <select id="attendance" name="attendance" required>
               <option value="Ya">Ya, Saya Akan Hadir</option>
               <option value="Tidak">Maaf, Saya Tidak Bisa Hadir</option>
             </select>
-      
+       -->
             <!-- Pesan untuk Pengantin -->
-            <label for="message">Pesan untuk Pengantin:</label>
+            <!-- <label for="message">Pesan untuk Pengantin:</label>
             <textarea id="message" name="message" rows="4" required></textarea>
-      
+       -->
             <!-- Tombol Submit -->
-            <button type="submit" class="">Kirim</button>
-          </form>
-          <p id="response" style="color: blue; font-weight: bold;"></p>
-        </div>
+            <!-- <button type="submit" class="">Kirim</button>
+          </form> -->
+          <!-- <p id="response" style="color: blue; font-weight: bold;"></p> -->
+        <!-- </div> -->
       </section>
       
     <!-- jquery -->
