@@ -180,7 +180,7 @@ document.getElementById('rsvpForm').addEventListener('submit', function (e) {
     const waMessage = `Halo, ini RSVP saya:%0A%0ANama: ${encodeURIComponent(name)}%0AKehadiran: ${encodeURIComponent(attendance)}%0APesan: ${encodeURIComponent(message)}`;
   
     // Nomor WhatsApp tujuan
-    const waNumber = '6282210980898'; // Ganti dengan nomor tujuan
+    const waNumber = '6285284132236'; // Ganti dengan nomor tujuan
   
     // Buat URL WhatsApp
     const waURL = `https://wa.me/${waNumber}?text=${waMessage}`;
