@@ -162,42 +162,23 @@ function copyText(el)
     }, 2000)
 }
 
-const scriptURL = 'https://script.google.com/a/macros/student.cs.unida.gontor.ac.id/s/AKfycbznbFfRo7n4aevEcKkoQF9ZxLdi3OKsSs_tw5OWOEs8nE6qrsQ3UEycW8eDnA2ZbWA/exec'; // Ganti dengan URL Web App dari Apps Script
-const form = document.getElementById('rsvpForm');
-const responseMessage = document.getElementById('response');
+document.getElementById('rsvpForm').addEventListener('submit', function (e) {
+    e.preventDefault(); // Mencegah reload halaman
 
-form.addEventListener('submit', async (e) => {
-  e.preventDefault(); // Mencegah pengiriman form secara default
+    // Ambil data dari form
+    const name = document.getElementById('name').value;
+    const attendance = document.getElementById('attendance').value;
+    const message = document.getElementById('message').value;
 
-  // Ambil data dari form
-  const formData = new FormData(form);
-  const data = {
-    name: formData.get('name'),
-    kehadiran: formData.get('adults'),
-    kids: formData.get('kids'),
-  };
+    // Format pesan untuk WhatsApp
+    const waMessage = `Halo, ini RSVP saya:%0A%0ANama: ${name}%0AKehadiran: ${attendance}%0APesan: ${message}`;
 
-  try {
-    // Kirim data ke Google Apps Script
-    const response = await fetch(scriptURL, {
-      method: 'POST',
-      body: JSON.stringify(data),
-      headers: { 'Content-Type': 'application/json' },
-    });
+    // Nomor WhatsApp tujuan (format: 62 untuk kode Indonesia)
+    const waNumber = '6282210980898'; // Ganti dengan nomor tujuan
 
-    const result = await response.json();
+    // Buat URL WhatsApp
+    const waURL = `https://wa.me/${waNumber}?text=${waMessage}`;
 
-    // Tampilkan pesan sukses atau error
-    if (result.status === 'success') {
-      responseMessage.textContent = 'RSVP Anda berhasil dikirim. Terima kasih!';
-      responseMessage.style.color = 'green';
-      form.reset();
-    } else {
-      responseMessage.textContent = 'Terjadi kesalahan, silakan coba lagi.';
-      responseMessage.style.color = 'red';
-    }
-  } catch (error) {
-    responseMessage.textContent = 'Gagal mengirim RSVP. Periksa koneksi internet Anda.';
-    responseMessage.style.color = 'red';
-  }
+    // Buka WhatsApp Web
+    window.open(waURL, '_blank');
 });
