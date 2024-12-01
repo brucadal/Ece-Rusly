@@ -162,23 +162,23 @@ function copyText(el)
     }, 2000)
 }
 
-document.getElementById('rsvpForm').addEventListener('submit', function (e) {
-    e.preventDefault(); // Mencegah reload halaman
+ document.getElementById('rsvpForm').addEventListener('submit', function (e) {
+        e.preventDefault(); // Mencegah reload halaman
 
-    // Ambil data dari form
-    const name = document.getElementById('name').value;
-    const attendance = document.getElementById('attendance').value;
-    const message = document.getElementById('message').value;
+        // Ambil data dari form
+        const name = document.getElementById('name').value;
+        const attendance = document.getElementById('attendance').value;
+        const message = document.getElementById('message').value;
 
-    // Format pesan untuk WhatsApp
-    const waMessage = `Halo, ini RSVP saya:%0A%0ANama: ${name}%0AKehadiran: ${attendance}%0APesan: ${message}`;
+        // Format pesan untuk WhatsApp
+        const waMessage = `Halo, ini RSVP saya:%0A%0ANama: ${name}%0AKehadiran: ${attendance}%0APesan: ${message}`;
 
-    // Nomor WhatsApp tujuan (format: 62 untuk kode Indonesia)
-    const waNumber = '6282210980898'; // Ganti dengan nomor tujuan
+        // Nomor WhatsApp tujuan (format: 62 untuk kode Indonesia)
+        const waNumber = '6281234567890'; // Ganti dengan nomor tujuan
 
-    // Buat URL WhatsApp
-    const waURL = `https://wa.me/${waNumber}?text=${waMessage}`;
+        // Buat URL WhatsApp
+        const waURL = `https://wa.me/${waNumber}?text=${waMessage}`;
 
-    // Buka WhatsApp Web
-    window.open(waURL, '_blank');
-});
+        // Buka WhatsApp Web
+        window.open(waURL, '_blank');
+    });
