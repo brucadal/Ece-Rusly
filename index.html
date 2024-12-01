@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Wedding Khumairoh ❤️ Rusly </title>
+    <title>Wedding Khumairoh Dan Rusly </title>
     <!-- favicon -->
     <link rel="icon" href="asset/img/gallery/foto10.jpg">
     <!-- bootstrap -->
@@ -427,7 +427,7 @@
       </section>
 
       <!-- gift section -->
-       <section id="gift-section" class="gift-section  ">
+       <section id="gift-section" class="gift-section py-5 ">
         <div class="container">
           <div class="row justify-content-center">
             <div class="col-lg-8">
@@ -467,6 +467,7 @@
 
                   </div>
                 </div>
+                <img src="asset/img/bunga.png" alt="" data-aos="fade-down" data-aos-easing="linear" data-aos-duration="1500">
               </div>
              
           </div>
@@ -474,11 +475,33 @@
        </section>
 
        
-       <section id="rsvp-section" class="d-flex align-items-center">
-      <a href="#pembuka-section"></a>
-
-       </section>
-
+       <section id="rsvp-section" class="d-flex align-items-center py-5 mb-6" data-aos="fade-down" data-aos-easing="linear" data-aos-duration="1500">
+        <a href="#pembuka-section"></a>
+        <div class="form-container">
+          <h2>RSVP Form</h2>
+          <form id="rsvpForm">
+            <!-- Nama -->
+            <label for="name">Nama Anda:</label>
+            <input type="text" id="name" name="name" required>
+      
+            <!-- Kehadiran -->
+            <label for="attendance">Apakah Anda Akan Hadir:</label>
+            <select id="attendance" name="attendance" required>
+              <option value="Ya">Ya, Saya Akan Hadir</option>
+              <option value="Tidak">Maaf, Saya Tidak Bisa Hadir</option>
+            </select>
+      
+            <!-- Pesan untuk Pengantin -->
+            <label for="message">Pesan untuk Pengantin:</label>
+            <textarea id="message" name="message" rows="4" required></textarea>
+      
+            <!-- Tombol Submit -->
+            <button type="submit" class="">Kirim</button>
+          </form>
+          <p id="response" style="color: blue; font-weight: bold;"></p>
+        </div>
+      </section>
+      
     <!-- jquery -->
     <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
     <!-- bootstrap5 -->

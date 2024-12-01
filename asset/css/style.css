@@ -431,6 +431,7 @@ background: var(--pink);
     background-color: var(--dark-grey);
     z-index: 100;
     border-radius: 50%;
+    
 }
 
 .timeline > li.timeline-inverted > .timeline-panel {
@@ -524,6 +525,7 @@ background: var(--pink);
     width: 300px;
     color: var(--white);
     position: absolute;
+    margin-top: auto;
 }
 
 .card-logo {
@@ -571,3 +573,116 @@ background: var(--pink);
     box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5)
 }
 
+/* Styling untuk bagian RSVP */
+#rsvp-section {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    max-width: 600px;
+    margin: 50px auto;
+}
+
+/* Judul Form */
+#rsvp-section h2 {
+    font-size: 2rem;
+    text-align: center;
+    color: #007bff;
+    margin-bottom: 20px;
+    font-family: 'Courier New',  monospace;
+}
+
+/* Form Container */
+.form-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* Label Styling */
+label {
+    font-size: 1.1rem;
+    color: #555;
+}
+
+/* Input, Select, and Textarea Styling */
+input[type="text"], select, textarea {
+    padding: 10px;
+    font-size: 1rem;
+    border: 2px solid #ddd;
+    border-radius: 5px;
+    width: 100%;
+}
+
+input[type="text"]:focus, select:focus, textarea:focus {
+    border-color: #007bff;
+    outline: none;
+}
+
+/* Button Styling */
+button {
+    padding: 12px;
+    background-color: #007bff;
+    color: white;
+    font-size: 1.1rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    text-align: center;
+}
+form {
+    text-align: center; /* Memusatkan konten dalam form */
+}
+
+button[type="submit"] {
+    padding: 12px 24px;
+    background-color: #007bff;
+    color: white;
+    font-size: 1rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin: auto;
+}
+
+button[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+
+button:hover {
+    background-color: #0056b3;
+}
+
+/* Styling untuk Pesan Balasan */
+#response {
+    text-align: center;
+    font-size: 1rem;
+    color: #007bff;
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+/* Responsif untuk perangkat mobile */
+@media (max-width: 600px) {
+    #rsvp-section {
+        padding: 20px;
+        margin: 20px;
+    }
+
+    #rsvp-section h2 {
+        font-size: 1.8rem;
+    }
+    
+    input[type="text"], select, textarea {
+        font-size: 1rem;
+        padding: 8px;
+    }
+
+    button {
+        font-size: 1rem;
+        padding: 10px;
+    }
+}
