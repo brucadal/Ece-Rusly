@@ -418,8 +418,8 @@
 
               <div class="row justify-content-center">
                 <div class="col-lg-6 text-center">
-                  <button type="button" class="text-center btn btn-lg btn-pink mb-4 rounded-pill" data-bs-toggle="collapse" data-bs-target="#collapseHadiah"><i class="fas fa-fw fa-gift"></i> Kirim Hadiah</button>
-                  <div class="collapse" id="collapseHadiah">
+                  <button type="button" class="text-center btn btn-lg btn-pink mb-4 rounded-pill" data-bs-toggle="collapse" data-bs-target="#giftCollapse"><i class="fas fa-fw fa-gift"></i> Kirim Hadiah</button>
+                  <div class="collapse" id="giftCollapse">
                     <div class="my-4 mx-auto position-relative credit-card">
                       <img src="asset/img/logobri.jpg" alt="Logo BCA" class="card-logo">
                       <div class="card-container">
@@ -455,52 +455,103 @@
        </section>
 
        
-       <section id="rsvp-section" class="d-flex align-items-center py-5 mb-6" data-aos="fade-down" data-aos-easing="linear" data-aos-duration="1500">
-        <a href="#pembuka-section"></a>
-        <div class="rsvp-box">
-          <h1>RSVP Pernikahan</h1>
-          <form id="rsvpForm">
-              <input type="text" id="name" placeholder="Nama" required />
-              <select id="attendance" required>
-                  <option value="" disabled selected>Pilih Kehadiran</option>
-                  <option value="Hadir">Hadir</option>
-                  <option value="Tidak Hadir">Tidak Hadir</option>
-                  <option value="Masih Pertimbangan">Masih Pertimbangan</option>
-              </select>
-              <textarea id="message" placeholder="Pesan atau Ucapan" required></textarea>
-              <button type="submit">Kirim RSVP</button>
-          </form>
-  
-          <div id="response"></div>
-  
-          <div id="commentSection">
-              <!-- Komentar akan muncul di sini -->
+     <!-- rsvp section -->
+    <section id="rsvp-section" class="rsvp-section section-bg py-5">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-lg-8">
+            <div class="section-title text-center">
+              <h1 class="text-pink huruf-sambung fw-bold">RSVP</h1>
+              <p>Isi form di bawah ini untuk melakukan konfirmasi kehadiran Anda.</p>
+            </div>
+            <form action="https://script.google.com/macros/s/AKfycbyIfjWG5EjQiyYk3R8n0MnmlJM6TcOYWuG4HvBaq3VpbINVZyMZvvNVjCDLffH61Aq7/exec" class="row row-cols-md-auto g-3 align-items-center justify-content-center" id="rsvp-form" method="POST">
+              <div class="col-12">
+                <div class="mb-3">
+                  <label for="nama" class="form-label">Nama</label>
+                  <input type="text" class="form-control" id="nama" name="nama">
+                </div>
+              </div>
+              <div class="col-12">
+                <div class="mb-3">
+                  <label for="jumlah" class="form-label">Jumlah</label>
+                  <input type="number" class="form-control" id="jumlah" name="jumlah" min="1" max="5" length="1" value="1">
+                </div>
+              </div>
+              <div class="col-12">
+                <div class="mb-3">
+                  <label for="status" class="form-label">Status</label>
+                  <select name="status" id="status" class="form-select">
+                    <option value="0" selected>Pilih salah satu</option>
+                    <option value="Hadir">Hadir</option>
+                    <option value="Tidak Hadir">Tidak Hadir</option>
+                  </select>
+                </div>
+              </div>
+              <div class="col-12 mt-3">
+                <div class="mt-3">
+                  <button type="submit" class="btn btn-kirim"><i class="fas fa-fw fa-paper-plane"></i> Kirim</button>
+                </div>
+              </div>
+            </form>
+            <div class="row mt-5 justify-content-center">
+              <div class="col-lg-12">
+                <div id="disqus_thread"></div>
+                <script>
+                    /**
+                    *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+                    *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables    */
+                    /*
+                    var disqus_config = function () {
+                    this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+                    this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+                    };
+                    */
+                    (function() { // DON'T EDIT BELOW THIS LINE
+                    var d = document, s = d.createElement('script');
+                    s.src = 'https://wedding-nobita-shizuka-1.disqus.com/embed.js';
+                    s.setAttribute('data-timestamp', +new Date());
+                    (d.head || d.body).appendChild(s);
+                    })();
+                </script>
+                <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+              </div>
+            </div>
           </div>
+        </div>
       </div>
-        <!-- <div class="form-container">
-          <h2>RSVP Form</h2>
-          <form id="rsvpForm"> -->
-            <!-- Nama -->
-            <!-- <label for="name">Nama Anda:</label>
-            <input type="text" id="name" name="name" required>
-       -->
-            <!-- Kehadiran -->
-            <!-- <label for="attendance">Apakah Anda Akan Hadir:</label>
-            <select id="attendance" name="attendance" required>
-              <option value="Ya">Ya, Saya Akan Hadir</option>
-              <option value="Tidak">Maaf, Saya Tidak Bisa Hadir</option>
-            </select>
-       -->
-            <!-- Pesan untuk Pengantin -->
-            <!-- <label for="message">Pesan untuk Pengantin:</label>
-            <textarea id="message" name="message" rows="4" required></textarea>
-       -->
-            <!-- Tombol Submit -->
-            <!-- <button type="submit" class="">Kirim</button>
-          </form> -->
-          <!-- <p id="response" style="color: blue; font-weight: bold;"></p> -->
-        <!-- </div> -->
-      </section>
+    </section>
+
+    <!-- penutup section -->
+    <section id="penutup-section" class="penutup-section py-5">
+      <div class="container" data-aos="fade-up" data-aos-easing="linear" data-aos-duration="1500">
+        <div class="row justify-content-center">
+          <div class="col-lg-8">
+            <div class="section-title text-center">
+              <h1 class="text-pink huruf-sambung fw-bold">Wassalamu'alaikum</h1>
+              <p>Merupakan suatu kebahagiaan dan kehormatan bagi kami, apabila Bapak/Ibu/Saudara/i, berkenan hadir dan memberikan do'a restu kepada kami.</p>
+              <h5 class="my-3">KAMI YANG BERBAHAGIA</h5>
+              <h1 class="huruf-sambung">Khumairoh & Rusly</h1>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- footer -->
+    <footer id="footer" class="mb-5 pb-5">
+      <div class="container py-5 text-center position-relative">
+        <div class="row">
+          <div class="col-12 my-3">
+            <a href="https://youtube.com/c/hauscoding" target="_blank" class="text-decoration-none text-pink fw-bold">&copy; 2024. Made with ❤ by Al Creations</a>
+          </div>
+          <div class="col-12 my-3">
+            <a href="#" class="text-pink"><i class="fas fa-fw fa-arrow-up"></i> Back to top</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+  </div>
       
     <!-- jquery -->
     <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>

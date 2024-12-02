@@ -142,64 +142,81 @@ const namaSambutan = document.querySelector('#nama-sambutan')
 namaSambutan.innerText = `${panggilan} ${nama}`
 // copy trxt
 
-function copyText(el)
-{
-    var content = jQuery(el).siblings('div.card-container').find('div.card-number').text().trim()
-    var temp = document.createElement('textarea');
-    document.body.appendChild(temp)
+function copyText(el) {
+    const container = jQuery(el).siblings('div.card-container');
+    const cardNumber = container.find('div.card-number').text().trim();
 
-    temp.value = content.replace(/\s+/g, '')
-    temp.select()
-
-    document.execCommand ("copy")
-
-    document.body.removeChild(temp)
-
-    jQuery(el).text('Berhasil di Copy')
-
-    setTimeout(function () {
-        jQuery(el).html(`<i class="fas fa-reguler fa-copy"></i> copy`)
-    }, 2000)
-}
-
-
-document.getElementById('rsvpForm').addEventListener('submit', function (e) {
-    e.preventDefault(); // Mencegah reload halaman
-
-    // Ambil data dari form
-    const name = document.getElementById('name').value.trim();
-    const attendance = document.getElementById('attendance').value;
-    const message = document.getElementById('message').value.trim();
-
-    if (!name || !attendance || !message) {
-        document.getElementById('response').textContent = 'Mohon lengkapi semua bidang sebelum mengirim.';
+    if (!cardNumber) {
+        alert('Nomor rekening tidak ditemukan.');
         return;
     }
 
-    // Format pesan untuk WhatsApp
-    const waMessage = `Halo, ini RSVP saya:%0A%0ANama: ${encodeURIComponent(name)}%0AKehadiran: ${encodeURIComponent(attendance)}%0APesan: ${encodeURIComponent(message)}`;
+    const temp = document.createElement('textarea');
+    document.body.appendChild(temp);
 
-    // Nomor WhatsApp tujuan
-    const waNumber = '6285284132236'; // Ganti dengan nomor tujuan
+    temp.value = cardNumber.replace(/\s+/g, ''); // Hilangkan spasi
+    temp.select();
+    document.execCommand("copy");
+    document.body.removeChild(temp);
 
-    // Buat URL WhatsApp
-    const waURL = `https://wa.me/${waNumber}?text=${waMessage}`;
-
-    // Buka WhatsApp Web
-    window.open(waURL, '_blank');
-
-    // Tampilkan feedback
-    document.getElementById('response').textContent = 'RSVP Anda sedang dikirim melalui WhatsApp.';
-
-    // Menambahkan komentar ke bawah form
-    const commentSection = document.getElementById('commentSection');
-    const newComment = document.createElement('div');
-    newComment.classList.add('comment');
-    newComment.innerHTML = `<strong>${name}</strong><br>Kehadiran: ${attendance}<br>Pesan: ${message}`;
-    commentSection.appendChild(newComment);
-
-    // Kosongkan form setelah pengiriman
-    document.getElementById('name').value = '';
-    document.getElementById('attendance').value = '';
-    document.getElementById('message').value = '';
-});
+    jQuery(el).text('Berhasil di Copy');
+    setTimeout(() => {
+        jQuery(el).html('<i class="fas fa-reguler fa-copy"></i> copy');
+    }, 2000);
+}
+window.addEventListener("load", function() {
+    const form = document.getElementById('rsvp-form');
+    form.addEventListener("submit", function(e) {
+      e.preventDefault();
+  
+      const status = document.getElementById('status').value
+      const nama = document.getElementById('nama').value.trim()
+  
+      if (nama === "") {
+          Swal.fire({
+              icon: "error",
+              text: "Nama harus diisi!"
+          })
+          return
+      }
+  
+      if (status == "0") {
+          Swal.fire({
+              icon: "error",
+              text: "Pilih salah satu status terlebih dahulu!"
+          })
+          return
+      }
+  
+      const data = new FormData(form);
+      const action = e.target.action;
+      const input = form.querySelectorAll('input, select, button')
+      input.forEach(input => {
+          input.disabled = true
+      })
+  
+      fetch(action, {
+        method: 'POST',
+        body: data,
+      })
+      .then(() => {
+        Swal.fire({
+            icon: "success",
+            text: "Konfirmasi kehadiran Anda berhasil terkirim!"
+        })
+      })
+      .catch((error) => {
+          Swal.fire({
+                icon: "error",
+                text: error
+          })
+      })
+      .finally(() => {
+          input.forEach(input => {
+              input.disabled = false
+          })
+      })
+    });
+  });
+  
+  
