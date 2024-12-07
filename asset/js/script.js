@@ -1,3 +1,22 @@
+
+// Waktu awal hitung mundur (dalam detik)
+    let countdownTime = 5;
+
+    // Ambil elemen untuk menampilkan hitung mundur
+    const countdownElement = document.getElementById("hitung-mundur");
+
+    // Fungsi untuk memperbarui hitung mundur
+    const interval = setInterval(() => {
+      countdownTime--; // Kurangi waktu
+      countdownElement.textContent = countdownTime; // Perbarui elemen
+
+      // Hentikan hitung mundur ketika waktu habis
+      if (countdownTime <= 0) {
+        clearInterval(interval);
+        mulai();
+      }
+    }, 1000); // Interval 1000ms = 1 detik
+
 // Fungsi untuk meminta nama pengguna melalui prompt dan menampilkannya
 function tampilkanNama() {
     // Meminta input nama melalui prompt
