@@ -1,9 +1,16 @@
 // Fungsi untuk meminta nama pengguna melalui prompt dan menampilkannya
 function tampilkanNama() {
     // Meminta input nama melalui prompt
-    
-  
-    const nama = prompt("Masukkan nama Anda:");
+    const currentUrl = window.location.href;
+
+    // buat objek URL
+    const url = new URL(currentUrl);
+
+    // gunakan URLSearchParams untuk mendapatkan nilai query parameter
+    const params = new URLSearchParams(url.search);
+
+    // ambil nilai parameter 
+    const nama = params.get("nama")
 
     // Menampilkan nama yang dimasukkan di elemen dengan id 'nama-sambutan'
     if (nama) {
