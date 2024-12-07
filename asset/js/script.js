@@ -10,7 +10,7 @@ function tampilkanNama() {
     const params = new URLSearchParams(url.search);
 
     // ambil nilai parameter 
-    const nama = params.get("nama")
+    const nama = params.get("nama");
 
     // Menampilkan nama yang dimasukkan di elemen dengan id 'nama-sambutan'
     if (nama) {
