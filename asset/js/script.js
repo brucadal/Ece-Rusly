@@ -8,7 +8,11 @@
     // Fungsi untuk memperbarui hitung mundur
     const interval = setInterval(() => {
       countdownTime--; // Kurangi waktu
-      countdownElement.textContent = countdownTime; // Perbarui elemen
+      if (countdownTime == 0) {
+      countdownElement.textContent = "Mulai";
+      }else{
+        countdownElement.textContent = countdownTime
+      } // Perbarui elemen
 
       // Hentikan hitung mundur ketika waktu habis
       if (countdownTime <= 0) {
