@@ -1,8 +1,16 @@
 // // Fungsi untuk meminta nama pengguna melalui prompt dan menampilkannya
 // function tampilkanNama() {
 //     // Meminta input nama melalui prompt
+//     const currentUrl = window.location.href;
 
-//     const nama = prompt("Masukkan nama Anda:");
+//     // buat objek URL
+//     const url = new URL(currentUrl);
+
+//     // gunakan URLSearchParams untuk mendapatkan nilai query parameter
+//     const params = new URLSearchParams(url.search);
+
+//     // ambil nilai parameter
+//     const nama = params.get("nama");
 
 //     // Menampilkan nama yang dimasukkan di elemen dengan id 'nama-sambutan'
 //     if (nama) {
@@ -21,6 +29,12 @@
 // window.onload = function() {
 //     tampilkanNama();
 // };
+// >>>>>>> 50decbcdcfe8bf8b5991e9a8b7f932e53e250989
+
+// // // Panggil fungsi untuk meminta nama saat halaman dimuat atau sesuai kebutuhan
+// // window.onload = function() {
+// //     tampilkanNama();
+// // };
 
 // aos
 AOS.init();
