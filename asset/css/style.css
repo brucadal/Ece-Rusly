@@ -65,19 +65,19 @@ body.transition {
     }
 }
 #hitung-mundur {
-    font-size: 3rem; /* Ukuran font besar */
-    font-weight: bold; /* Teks tebal */
-    color: var(--pink-hover); /* Warna teks sesuai tema */
-    background: linear-gradient(135deg, var(--pink-light), var(--pink)); /* Gradien warna */
-    border-radius: 50%; /* Bentuk lingkaran */
-    width: 100px; /* Lebar lingkaran */
-    height: 100px; /* Tinggi lingkaran */
-    display: flex; /* Menggunakan flexbox */
-    align-items: center; /* Teks berada di tengah secara vertikal */
-    justify-content: center; /* Teks berada di tengah secara horizontal */
-    margin: 20px auto; /* Pusatkan elemen dengan margin */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Bayangan untuk kesan 3D */
-    animation: pulse 1s infinite; /* Animasi berdenyut */
+    font-size: 3rem; 
+    font-weight: bold; 
+    color: var(--pink-hover); 
+    background: linear-gradient(135deg, var(--pink-light), var(--pink)); 
+    border-radius: 50%; 
+    width: 100px; 
+    height: 100px; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center;
+    margin: 20px auto; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+    animation: pulse 1s infinite; 
 }
 .open {
     background-color: var(--white);
